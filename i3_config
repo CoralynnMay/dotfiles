@@ -106,6 +106,8 @@ bar {
 }
 
 # startup tasks
-exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
+exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-25
+
+exec --no-startup-id /opt/Enpass/bin/runenpass.sh startWithTray 
 
 exec --no-startup-id nm-applet
