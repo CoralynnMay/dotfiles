@@ -1,0 +1,3 @@
+[submodule "light"]
+	path = light
+	url = https://github.com/haikarainen/light.git
