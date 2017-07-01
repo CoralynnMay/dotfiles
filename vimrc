@@ -19,11 +19,11 @@ set relativenumber
 " Trims white space at end of lines and files
 function TrimAll()
     let save_cursor = getpos(".")
-    :%s/\s\+$//e
+    :silent! %s/\s\+$//e
     :silent! %s#\($\n\s*\)\+\%$##
     call setpos('.', save_cursor)
 endfunction
 
-autocmd BufWritePre * :TrimAll()
+autocmd BufWritePre * :call TrimAll()
 
 inoremap ;; <Esc>/<++><cr>"_c4l

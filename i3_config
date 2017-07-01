@@ -106,7 +106,7 @@ bar {
 }
 
 # startup tasks
-exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-25
+exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-25 VertEdgeScroll=0 HorizTwoFingerScroll=1 HorizScrollDelta=-25
 
 exec --no-startup-id /opt/Enpass/bin/runenpass.sh startWithTray 
 
