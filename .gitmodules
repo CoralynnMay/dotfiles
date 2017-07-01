@@ -1,3 +1,6 @@
 [submodule "light"]
 	path = light
 	url = https://github.com/haikarainen/light.git
+[submodule "subMods/light"]
+	path = subMods/light
+	url = https://github.com/haikarainen/light.git
