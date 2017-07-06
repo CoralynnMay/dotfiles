@@ -34,6 +34,7 @@ command! MakeTags !ctags -R .
 
 " Display line numbers
 set relativenumber
+set number
 
 " Trims white space at end of lines and files
 function TrimAll()
