@@ -1,5 +1,7 @@
 set nocompatible
 
+source $HOME/.vimbundle
+
 syntax enable
 filetype plugin on
 filetype indent on
