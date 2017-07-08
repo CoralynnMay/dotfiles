@@ -4,4 +4,4 @@ sh ./install.sh
 rm ./install.sh
 ln -s $(pwd)/vimbundle $HOME/.vimbundle
 ln -s $(pwd)/vimrc $HOME/.vimrc
-vim -u $HOME/.vimbundle +NeoBundleInstall +qall
+vim  +NeoBundleInstall +qall
