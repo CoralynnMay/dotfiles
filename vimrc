@@ -20,7 +20,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'sirver/ultisnips'
-NeoBundle 'honza/vim-snippets'
 
 call neobundle#end()
 
