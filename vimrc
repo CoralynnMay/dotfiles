@@ -20,6 +20,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'sirver/ultisnips'
+NeoBundle 'honza/vim-snippets'
 
 call neobundle#end()
 
@@ -43,9 +44,13 @@ set shiftwidth=2
 set noexpandtab
 
 " Snippit setting
+let g:UltiSnipsSnippetsDir=$HOME."/.dot/snippits/"
+let g:UltiSnipsSnippetDirectories=[g:UltiSnipsSnippetsDir]
+let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Split navigation set to ctrl hjkl
 nnoremap <C-J> <C-W><C-J>
