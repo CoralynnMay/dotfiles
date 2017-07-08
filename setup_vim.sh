@@ -1,4 +1,7 @@
-git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+rm -rf $HOME/.vim*
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+sh ./install.sh
+rm ./install.sh
 ln -s $(pwd)/vimbundle $HOME/.vimbundle
 ln -s $(pwd)/vimrc $HOME/.vimrc
-vim -u $HOME/.vimbundle +BundleInstall +qall
+vim -u $HOME/.vimbundle +NeoBundleInstall +qall
