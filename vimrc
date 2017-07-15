@@ -88,6 +88,8 @@ function MoveFirst()
 endfunction
 command MoveFirst :call MoveFirst()
 
+autocmd BufNewFile,BufRead *.psgi set filetype=perl
+
 autocmd BufWritePre * :call TrimAll()
 
 inoremap `` <Esc>/<++><cr>"_c4l

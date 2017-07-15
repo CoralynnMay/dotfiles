@@ -1,0 +1,17 @@
+snippet module "Quick Module Setup"
+package ${1:MyModule};
+
+use strict;
+use Exporter;
+use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+$VERSION     = ${2:0.1};
+@ISA         = qw(Exporter);
+@EXPORT      = ();
+@EXPORT_OK   = qw(${3:func1});
+%EXPORT_TAGS = ( DEFAULT => [qw(&$3)]);
+
+sub $3 {
+  $4
+}
+
+endsnippet
