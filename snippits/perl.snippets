@@ -3,14 +3,12 @@ package ${1:MyModule};
 
 use strict;
 use Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-$VERSION     = ${2:0.1};
+use vars qw($VERSION @ISA @EXPORT_OK);
+$VERSION     = ${2:0.1.0};
 @ISA         = qw(Exporter);
-@EXPORT      = ();
-@EXPORT_OK   = qw(${3:func1});
-%EXPORT_TAGS = ( DEFAULT => [qw(&$3)]);
+@EXPORT_OK   = qw();
 
-sub $3 {
+sub ${3:func1}: {
   $4
 }
 
