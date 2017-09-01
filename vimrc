@@ -20,6 +20,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'sirver/ultisnips'
+NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'suan/vim-instant-markdown'
 
 call neobundle#end()
 
@@ -96,3 +98,8 @@ inoremap `` <Esc>/<++><cr>"_c4l
 
 autocmd FileType c,h inoremap `linc #include "<-->"<Esc>:MoveFirst<cr>i
 autocmd FileType c,h inoremap `ginc #include <<-->><Esc>:MoveFirst<cr>i
+
+set mouse=a
+
+" vimwiki settings to accept markdown
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
