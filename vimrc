@@ -22,6 +22,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'sirver/ultisnips'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'suan/vim-instant-markdown'
+NeoBundle 'arrufat/vala.vim'
 
 call neobundle#end()
 
@@ -93,6 +94,8 @@ command MoveFirst :call MoveFirst()
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
 
 autocmd BufWritePre * :call TrimAll()
+
+autocmd BufRead *.vala :normal zA
 
 inoremap `` <Esc>/<++><cr>"_c4l
 
