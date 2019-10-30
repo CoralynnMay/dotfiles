@@ -25,6 +25,9 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'peitalin/vim-jsx-typescript'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'valloric/youcompleteme'
+NeoBundle 'yuttie/comfortable-motion.vim'
 
 call neobundle#end()
 
@@ -92,6 +95,20 @@ autocmd FileType c,h inoremap `linc #include "<-->"<Esc>:MoveFirst<cr>i
 autocmd FileType c,h inoremap `ginc #include <<-->><Esc>:MoveFirst<cr>i
 
 set mouse=a
+" setup for NERDTree
+let g:NERDTreeWinPos = "right"
+map <C-n> :NERDTreeToggle<CR>
+
+" setup smooth scroll
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+
+nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
+
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+
 
 " vimwiki settings to accept markdown
 let g:vimwiki_ext2syntax = {'.md': 'markdown'}
