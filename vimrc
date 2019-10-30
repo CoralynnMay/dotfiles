@@ -23,6 +23,8 @@ NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'suan/vim-instant-markdown'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'peitalin/vim-jsx-typescript'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-commentary'
 
 call neobundle#end()
 
@@ -37,22 +39,10 @@ syntax enable
 filetype plugin on
 filetype indent on
 
-" <C-O> remap to pad up and down with 1 line
-nnoremap <C-O> o<cr><esc>ki
-
 " Tab settings
 set softtabstop=2
 set shiftwidth=2
 set noexpandtab
-
-" Snippit setting
-let g:UltiSnipsSnippetsDir=$HOME."/.dot/snippits/"
-let g:UltiSnipsSnippetDirectories=[g:UltiSnipsSnippetsDir]
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Split navigation set to ctrl hjkl
 nnoremap <C-J> <C-W><C-J>
@@ -95,7 +85,6 @@ autocmd BufNewFile,BufRead *.psgi set filetype=perl
 
 autocmd BufWritePre * :call TrimAll()
 
-autocmd BufRead *.vala *.vala.in :normal zA
 
 inoremap `` <Esc>/<++><cr>"_c4l
 
