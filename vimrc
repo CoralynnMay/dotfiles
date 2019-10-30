@@ -19,11 +19,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
-NeoBundle 'sirver/ultisnips'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'suan/vim-instant-markdown'
-NeoBundle 'arrufat/vala.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'peitalin/vim-jsx-typescript'
 
 call neobundle#end()
 
