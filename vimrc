@@ -28,6 +28,9 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'valloric/youcompleteme'
 NeoBundle 'yuttie/comfortable-motion.vim'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vimwiki/vimwiki'
 
 call neobundle#end()
 
@@ -106,8 +109,8 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
 nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
 
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(1)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-1)<CR>
 
 
 " vimwiki settings to accept markdown
