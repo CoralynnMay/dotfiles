@@ -31,6 +31,8 @@ NeoBundle 'yuttie/comfortable-motion.vim'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'danilo-augusto/vim-afterglow'
 
 call neobundle#end()
 
@@ -115,3 +117,6 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-1)<CR>
 
 " vimwiki settings to accept markdown
 let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+
+let g:afterglow_inherit_background=1
+colorscheme afterglow
