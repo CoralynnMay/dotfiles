@@ -33,6 +33,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'danilo-augusto/vim-afterglow'
+NeoBundle 'jparise/vim-graphql'
 
 call neobundle#end()
 
@@ -82,22 +83,11 @@ function TrimAll()
     call setpos('.', save_cursor)
 endfunction
 
-function MoveFirst()
-  if search("<-->", 'b') > 0
-    :normal "_d4l
-  endif
-endfunction
-command MoveFirst :call MoveFirst()
 
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
 
 autocmd BufWritePre * :call TrimAll()
 
-
-inoremap `` <Esc>/<++><cr>"_c4l
-
-autocmd FileType c,h inoremap `linc #include "<-->"<Esc>:MoveFirst<cr>i
-autocmd FileType c,h inoremap `ginc #include <<-->><Esc>:MoveFirst<cr>i
 
 set mouse=a
 " setup for NERDTree
@@ -120,3 +110,6 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 
 let g:afterglow_inherit_background=1
 colorscheme afterglow
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
