@@ -5,52 +5,40 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+call plug#begin('~/.vim/plugged')
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+Plug 'editorconfig/editorconfig-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
+Plug 'yuttie/comfortable-motion.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'jiangmiao/auto-pairs'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'jparise/vim-graphql'
+Plug 'dhruvasagar/vim-table-mode', {'tag': '*'}
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'elm-tooling/elm-vim'
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-NeoBundle 'vimwiki/vimwiki'
-NeoBundle 'suan/vim-instant-markdown'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'peitalin/vim-jsx-typescript'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'valloric/youcompleteme'
-NeoBundle 'yuttie/comfortable-motion.vim'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vimwiki/vimwiki'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'danilo-augusto/vim-afterglow'
-NeoBundle 'jparise/vim-graphql'
-
-call neobundle#end()
+call plug#end()
 
 " Required:
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
-NeoBundleCheck
 
 syntax enable
 filetype plugin on
 filetype indent on
 
 " Tab settings
-set softtabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 set noexpandtab
 
 " Split navigation set to ctrl hjkl
@@ -87,7 +75,10 @@ endfunction
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
 
 autocmd BufWritePre * :call TrimAll()
+" autocmd BufWritePre *.elm :Elm-Format
 
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
 
 set mouse=a
 " setup for NERDTree
@@ -104,12 +95,69 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(1)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-1)<CR>
 
+let g:elm_format_autosave = 1
 
-" vimwiki settings to accept markdown
-let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
 
 let g:afterglow_inherit_background=1
 colorscheme afterglow
 
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" CoC
+
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
