@@ -21,7 +21,7 @@ plugins=(git)
 
 ZSH_DISABLE_COMPFIX=true
 
-PATH=$PATH:/Users/coralynn/.local/bin
+PATH=$PATH:/Users/coralynn/.local/bin:$HOME/.cabal/bin
 
 source $ZSH/oh-my-zsh.sh
 

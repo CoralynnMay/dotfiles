@@ -23,6 +23,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'elm-tooling/elm-vim'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
@@ -35,6 +36,10 @@ filetype plugin indent on
 syntax enable
 filetype plugin on
 filetype indent on
+
+let g:ale_linters ={
+      \   'haskell': ['hlint', 'hdevtools', 'hfmt'],
+      \}
 
 " Tab settings
 set softtabstop=4
