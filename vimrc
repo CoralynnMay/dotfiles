@@ -21,9 +21,11 @@ Plug 'jparise/vim-graphql'
 Plug 'dhruvasagar/vim-table-mode', {'tag': '*'}
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'elm-tooling/elm-vim'
+Plug 'andys8/vim-elm-syntax'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovimhaskell/haskell-vim'
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
@@ -79,8 +81,8 @@ endfunction
 
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
 
+autocmd BufWritePre *.elm :call CocAction('format')
 autocmd BufWritePre * :call TrimAll()
-" autocmd BufWritePre *.elm :Elm-Format
 
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
