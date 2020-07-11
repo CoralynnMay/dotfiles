@@ -24,8 +24,7 @@ Plug 'elm-tooling/elm-vim'
 Plug 'andys8/vim-elm-syntax'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neovimhaskell/haskell-vim'
-Plug 'elixir-editors/vim-elixir'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -39,13 +38,17 @@ syntax enable
 filetype plugin on
 filetype indent on
 
-let g:ale_linters ={
-      \   'haskell': ['hlint', 'hdevtools', 'hfmt'],
-      \}
+let g:ale_fixers = {
+	    \ 'javascript': ['prettier'],
+	    \ 'scss': ['prettier'],
+	    \ 'html': ['prettier'],
+	    \}
+
+let g:ale_fix_on_save = 1
 
 " Tab settings
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set noexpandtab
 
 " Split navigation set to ctrl hjkl
@@ -80,6 +83,7 @@ endfunction
 
 
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
+autocmd BufNewFile,BufRead *.html set filetype=html
 
 autocmd BufWritePre *.elm :call CocAction('format')
 autocmd BufWritePre * :call TrimAll()
@@ -168,3 +172,7 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+" Emmet
+let g:user_emmet_leader_key=','
