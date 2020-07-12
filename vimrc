@@ -38,6 +38,8 @@ syntax enable
 filetype plugin on
 filetype indent on
 
+set iskeyword+=-
+
 let g:ale_fixers = {
 	    \ 'javascript': ['prettier'],
 	    \ 'scss': ['prettier'],
