@@ -25,6 +25,7 @@ Plug 'andys8/vim-elm-syntax'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
+Plug 'mattn/webapi-vim'
 
 call plug#end()
 
@@ -63,7 +64,7 @@ set splitbelow
 set splitright
 
 " Provide tab completion for all file related tasks
-set path+=**
+set path+=src/**
 
 " Display all matching files when we tab complete
 set wildmenu
@@ -178,3 +179,4 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Emmet
 let g:user_emmet_leader_key=','
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
