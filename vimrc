@@ -22,7 +22,7 @@ Plug 'dhruvasagar/vim-table-mode', {'tag': '*'}
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'elm-tooling/elm-vim'
 Plug 'andys8/vim-elm-syntax'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'mattn/webapi-vim'
@@ -42,6 +42,7 @@ filetype indent on
 set iskeyword+=-
 
 let g:ale_fixers = {
+	    \ 'typescript': ['prettier'],
 	    \ 'javascript': ['prettier'],
 	    \ 'scss': ['prettier'],
 	    \ 'html': ['prettier'],
@@ -180,3 +181,5 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Emmet
 let g:user_emmet_leader_key=','
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
+
+inoremap <C-o> <CR><Esc>O
